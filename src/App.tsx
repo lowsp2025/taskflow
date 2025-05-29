@@ -3,8 +3,10 @@ import { Calendar, Filter, Clock, List, ClipboardList, Search } from 'lucide-rea
 import clsx from 'clsx'
 
 function App() {
+  const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [dueDate, setDueDate] = useState('')
+  const [dueTime, setDueTime] = useState('')
   const [priority, setPriority] = useState('medium')
   const [category, setCategory] = useState('No Category')
 
@@ -24,6 +26,14 @@ function App() {
         </div>
         
         <div className="space-y-4">
+          <input
+            type="text"
+            className="w-full p-3 border rounded-lg"
+            placeholder="Task title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          
           <textarea
             className="w-full p-3 border rounded-lg resize-none"
             rows={3}
@@ -38,9 +48,14 @@ function App() {
               <input
                 type="date"
                 className="border rounded p-2"
-                placeholder="dd/mm/yyyy"
                 value={dueDate}
                 onChange={(e) => setDueDate(e.target.value)}
+              />
+              <input
+                type="time"
+                className="border rounded p-2"
+                value={dueTime}
+                onChange={(e) => setDueTime(e.target.value)}
               />
             </div>
 
