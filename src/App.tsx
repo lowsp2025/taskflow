@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CalendarDaysIcon, FunnelIcon, ClockIcon, ListBulletIcon } from '@heroicons/react/24/outline'
+import { Calendar, Filter, Clock, List, ClipboardList, Search } from 'lucide-react'
 import clsx from 'clsx'
 
 function App() {
@@ -15,8 +15,14 @@ function App() {
         <span className="text-gray-600">0 pending</span>
       </header>
 
-      <div className="bg-white rounded-lg shadow p-6 mb-8">
-        <h2 className="text-lg mb-4">Add a new task...</h2>
+      <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg">Add a new task...</h2>
+          <button className="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 flex items-center gap-2">
+            <span>Add</span>
+          </button>
+        </div>
+        
         <div className="space-y-4">
           <textarea
             className="w-full p-3 border rounded-lg resize-none"
@@ -26,9 +32,9 @@ function App() {
             onChange={(e) => setDescription(e.target.value)}
           />
           
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center flex-wrap">
             <div className="flex items-center gap-2">
-              <CalendarDaysIcon className="w-5 h-5 text-gray-500" />
+              <Calendar className="w-5 h-5 text-gray-500" />
               <input
                 type="date"
                 className="border rounded p-2"
@@ -66,36 +72,36 @@ function App() {
               <option>No Category</option>
             </select>
           </div>
-
-          <div className="flex justify-end gap-2">
-            <button className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded">
-              Cancel
-            </button>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-              Add
-            </button>
-          </div>
         </div>
       </div>
 
       <div className="space-y-4">
+        <div className="relative">
+          <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Search tasks..."
+            className="w-full pl-10 pr-4 py-2 border rounded-lg"
+          />
+        </div>
+
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
             <span className="text-gray-600">Sort by:</span>
             <button className="flex items-center gap-1 text-gray-600 hover:text-gray-900">
-              <CalendarDaysIcon className="w-5 h-5" />
+              <Calendar className="w-5 h-5" />
               Due Date
             </button>
             <button className="flex items-center gap-1 text-gray-600 hover:text-gray-900">
-              <FunnelIcon className="w-5 h-5" />
+              <Filter className="w-5 h-5" />
               Priority
             </button>
             <button className="flex items-center gap-1 text-gray-600 hover:text-gray-900">
-              <ClockIcon className="w-5 h-5" />
+              <Clock className="w-5 h-5" />
               Creation Date
             </button>
             <button className="flex items-center gap-1 text-gray-600 hover:text-gray-900">
-              <ListBulletIcon className="w-5 h-5" />
+              <List className="w-5 h-5" />
               Manual
             </button>
           </div>
@@ -115,11 +121,7 @@ function App() {
         </div>
 
         <div className="flex flex-col items-center justify-center py-12 text-gray-500">
-          <div className="w-16 h-16 mb-4">
-            <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            </svg>
-          </div>
+          <ClipboardList className="w-16 h-16 mb-4" />
           <p className="text-lg font-medium">No tasks found</p>
           <p className="text-sm">Your task list is empty. Start by creating a new task!</p>
         </div>
