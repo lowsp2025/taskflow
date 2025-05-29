@@ -12,9 +12,13 @@ function App() {
 
   return (
     <div className="max-w-4xl mx-auto p-6">
-      <header className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-semibold">TaskFlow</h1>
-        <span className="text-gray-600">0 pending</span>
+      <header className="flex items-center mb-8">
+        <div className="flex items-center gap-2">
+          <h1 className="text-2xl font-semibold">TaskFlow</h1>
+          <div className="flex items-center justify-center bg-gray-100 rounded-full w-7 h-7">
+            <span className="text-sm text-gray-600">0</span>
+          </div>
+        </div>
       </header>
 
       <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
