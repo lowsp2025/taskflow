@@ -14,7 +14,7 @@ function App() {
     <div className="max-w-4xl mx-auto p-6">
       <header className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-semibold">TaskFlow</h1>
-        <span className="text-gray-600">0 pending</span>
+        <span className="text-gray-600">10 pending</span>
       </header>
 
       <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
